@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="styles.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container">
+        <h1 class='title'>Popup Quiz Library API</h1>
+        <div class="content">
+            <h2 class='subtitle1'>options</h2>
+            All the global options available.
+            <p>
+                <h3 class='subtitle2'>size</h3>
+                <p>Default: /</p>
+                <p>Type: String</p>
+                <p>Description: A CSS selecor for the modal size. you can choose between:
+                    <ul>
+                        <li>'small'</li>
+                        <li>'medium'</li>
+                        <li>'large'</li>
+                    </ul>
+                </p>
+            </p>
+            <p>
+                <h3 class='subtitle2'>color</h3>
+                <p>Default: 'white'</p>
+                <p>Type: String</p>
+                <p>Description: A CSS selecor for the modal background color. The color type accepted are: hexadecimal, rgb, rgba.
+                </p>
+            </p>
+            <p>
+                <h3 class='subtitle2'>question (required)</h3>
+                <p>Default: /</p>
+                <p>Type: Object</p>
+                <p>Description: Let you customize the quiz with the following format. Hint is optional.
+                    <ul>
+                        <li>multiple choice</li>
+                        <pre>
+                            {
+                                type: 'multiple-choice',
+                                question: 'what is 1 + 1?',
+                                answer: {
+                                  options: ['1', '2', '3', '4'],
+                                  answer: '2'
+                                }
+                              }
+                        </pre>
+                        <li>true or false</li>
+                        <pre>
+                            {
+                                type: 'true-or-false',
+                                question: 'I like CSC309',
+                                answer: {
+                                answer: 'true'
+                                }
+                            }
+                        </pre>
+                        <li>drag and drop</li>
+                        <pre>
+                            {
+                                type: 'drag-drop',
+                                question: 'Choose words that starts with A.',
+                                answer: {
+                                    options: ['apple', 'orange', 'animal', 'cow'],
+                                    answer: ['apple', 'animal']
+                                },
+                                hint: 'One of the answers is apple'
+                            }
+                        </pre>
+                        <li>flash card</li>
+                        <pre>
+                            {
+                                type: 'flash-card',
+                                question: 'The color of the sky?',
+                                answer: 'blue',
+                                hint: 'Look at the sky'
+                            }
+                        </pre>
+                        <li>short answer</li>
+                        <pre>
+                            {
+                                type: 'short-answer',
+                                question: 'what is the color of orange?',
+                                answer: {
+                                  answer: 'orange'
+                                }
+                            }
+                        </pre>
+                    </ul>
+                </p>
+            </p>
+            <p>
+                <h3 class='subtitle2'>rating</h3>
+                <p>Default: true</p>
+                <p>Type: Boolean</p>
+                <p>Description: It decides the rating section at the end of the quiz.
+                </p>
+            </p>
+            <h2 class='subtitle1'>Methods</h2>
+            methods to control the modal
+
+            <pre>
+                modalInstance.makeModal()
+                // create the basic modal structure
+
+                modalInstance.closeModal()
+                // close the modal
+            </pre>
+
+            <h2 class='subtitle1'>Getting Started</h2>
+            <pre>
+                const mg = new ModalGenerator({
+                    size: size,
+                    color: color,
+                    questions: [
+                      {
+                        type: 'drag-drop',
+                        question: 'Choose words that starts with A.',
+                        answer: {
+                          options: ['apple', 'orange', 'animal', 'cow'],
+                          answer: ['apple', 'animal']
+                        },
+                        hint: 'One of the answers is apple'
+                      },
+                      {
+                        type: 'flash-card',
+                        question: 'The color of the sky?',
+                        answer: 'blue',
+                        hint: 'Look at the sky'
+                      },
+                      {
+                        type: 'multiple-choice',
+                        question: 'what is 1 + 1?',
+                        answer: {
+                          options: ['1', '2', '3', '4'],
+                          answer: '2'
+                        }
+                      },
+                      {
+                        type: 'short-answer',
+                        question: 'what is the color of orange?',
+                        answer: {
+                          answer: 'orange'
+                        }
+                      },
+                      {
+                        type: 'true-or-false',
+                        question: 'I like CSC309',
+                        answer: {
+                          answer: 'true'
+                        }
+                      }
+                    ],
+                    rating: rating
+                  });
+                mg.makeModal();
+            </pre>
+        </div>
+    </div>
+</body>
+</html>
